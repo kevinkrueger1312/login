@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link th:href="@{/css/register_page.css}" th:rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <div class="form_content">
+
+      <!--Tabs Titles-->
+      <a th:href="@{/auth/login}">
+        <h2>SIGN IN</h2>
+      </a>
+
+      <a th:href="@{/auth/registration}">
+        <h2 class="active">SIGN UP</h2>
+      </a>
+
+      <form class="register_form" th:object="${user}" th:action="@{/perform_registration}" method="post">
+        <input name="username" th:field="*{username}" type="text" placeholder="username" required="required">
+        <input name="password" th:field="*{password}" type="password"  placeholder="password" required="required">
+        <button class="register_btn" type="submit">SIGN UP</button>
+      </form>
+
+    </div>
+
+  </div>
+  
+</body>
+</html>

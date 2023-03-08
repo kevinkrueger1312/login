@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/greeting_page.css}" th:rel="stylesheet">
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <div class="greeting_content">
+    
+            <h2>Hi
+                <span sec:authentication="name"></span>!
+                <br>
+                <span sec:authorize="hasAuthority('user')">You are a user :)</span>
+                <span sec:authorize="hasAuthority('admin')">You are an admin :)</span>
+                </h2>
+            
+            <form th:action="@{/perform_logout}" method="post">
+                <button class="logout_btn" type="submit">LOGOUT</button>
+            </form>
+
+        </div>
+    
+      </div>
+
+</body>
+</html>
